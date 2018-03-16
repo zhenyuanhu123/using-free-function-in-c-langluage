@@ -1,0 +1,22 @@
+//free函数测试-------
+
+#include<stdio.h>
+#include<stdlib.h>
+int main(){
+    int *test;
+	test=(int *)malloc(sizeof(int));
+	*test=10;
+    if(!test)
+        printf("分配内存错误/n");
+    else{
+        printf("指针地址：%X\n",(unsigned int)test);
+        printf("指向内存的内容：%d\n",*test);
+        printf("释放内存\n");
+        free(test);
+        printf("释放后，指针的地址：%X\n",(unsigned int)test);
+        printf("释放后，指针指向的内存的内容：%d\n",*test);
+    }
+    return 0;
+}
+//free函数将malloc函数申请的内存归还给操作系统，即断开了指针和内存的联系，但是指针的值和内存的值并没有改变，
+//只是指针变为野指针，指向未知内容
